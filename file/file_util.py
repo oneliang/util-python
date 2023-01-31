@@ -18,5 +18,5 @@ def list_file_recursion(root_dir: str, suffix_array: [str]) -> []:
                 else:
                     pass
         else:  # is directory
-            file_list.extend(recursion_list_file(pathname, suffix_array))
+            file_list.extend(list_file_recursion(pathname, suffix_array))
     return file_list
