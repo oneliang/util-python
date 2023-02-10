@@ -146,6 +146,7 @@ def decorator_4(func):
 def multi_decorator_test():
     print('bbbbbbbbb')
 
+
 multi_decorator_test()
 print('function [multi_decorator_test] handle:{}'.format(multi_decorator_test))
 print('********************')
