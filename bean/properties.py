@@ -16,11 +16,16 @@ class Properties:
             line = f.readline()
             while line:
                 strip_line = line.strip()
-                equal_symbol_index = strip_line.index('=')
-                if equal_symbol_index > 0:
-                    key = strip_line[0:equal_symbol_index]
-                    value = strip_line[equal_symbol_index + 1:]
-                    self.__properties__[key] = value
+                if strip_line.startswith('#'):
+                    line = f.readline()
+                    continue
+
+                if strip_line.find('='):
+                    equal_symbol_index = strip_line.index('=')
+                    if equal_symbol_index > 0:
+                        key = strip_line[0:equal_symbol_index]
+                        value = strip_line[equal_symbol_index + 1:]
+                        self.__properties__[key] = value
                 line = f.readline()
 
     def get(self, key: str, default: str = None) -> str:
